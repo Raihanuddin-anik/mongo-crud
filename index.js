@@ -7,7 +7,11 @@ const uri = "mongodb+srv://RaihanUddin:431760raihan@cluster0.ostva.mongodb.net/o
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-const app = express();
+const app = express();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -40,7 +44,9 @@ client.connect(err => {
 
 
   app.patch('/update/:id', (req, res)=>{
+    console.log(req.body)
     collection.updateOne({_id: ObjectId(req.params.id)},
+    
     {
       $set:{price: req.body.price, quantity: req.body.quantity}
     
